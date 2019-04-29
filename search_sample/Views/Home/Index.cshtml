@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<form asp-controller="Home" asp-action="Search" method="post">
+<input class="searchBox" type="text" id="example1a" name="query" placeholder="search">
+<button type="submit">Поиск</button>
+</form>
+
+<!-- source: "/home/suggest?", -->
+@section Scripts {
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function () {
+    $("#example1a").autocomplete({
+        source: "/home/suggest?",
+        minLength: 3,
+        position: {
+            my: "left top",
+            at: "left-23 bottom+10"
+             }
+        });
+    });
+</script>
+}
